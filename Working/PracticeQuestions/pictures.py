@@ -1,3 +1,5 @@
-response = str(input("Hi! "))
-if response = str(input("Hi"))
-    print("Get yeeted")
+response = str(input("Hi: "))
+if (response == "Hi"):
+    print("Nice")
+else:
+    print("get yeeted")
