@@ -9,18 +9,27 @@ Created: 02/10/2019
 ------------------------------------------------------------------------------
 '''
 
-# print purpose of program
 print("****** Welcome to the fried chicken distributor ******")
 
-# get amount of chicken and number of students
 chicken = int(input("Enter pieces of fried chicken: "))
 students = int(input("Enter number of students: "))
 
-# compute chicken recieved by dividing chicken by students,
-# and finding remainder
-chicken_recieved = chicken // students
-leftover = chicken % students
 
-# print amount of chicken recived per student and chicken leftover
-print("Each student will recieve", chicken_recieved, "piece(s) of chicken,")
-print("there will be", leftover, "piece(s) leftover.")
+if (chicken == 0) and (students >0): 
+    print(students, "students starve to death")
+if (students == 0) and (chicken == 0):
+    print("Please kindly exit")
+elif(students > chicken) and (chicken > 0):
+    print("There isn't enough to share!")
+    print("The teacher gets", chicken, "pieces of chicken")
+elif students <= chicken and (chicken > 0): 
+    chicken_recieved = chicken // students
+    leftover = chicken % students
+    print("Students will get", chicken_recieved, "pieces of chicken")
+    print("The teacher will get", leftover, "pieces of chicken")
+
+
+
+
+
+
