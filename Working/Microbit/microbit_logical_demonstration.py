@@ -1,9 +1,11 @@
 from microbit import *
 import music 
+from servo import Servo 
+import time
 # pins 
 crash_sensor = pin0
 buzzer = pin1
-pir_sensor = pin2
+mini_servo = pin2
 ad_keypad = pin3
 potentiometer = pin4
 red_led = pin5
@@ -11,7 +13,9 @@ blue_led = pin6
 green_led = pin7
 # setup
 crash_sensor.set_pull(crash_sensor.PULL_UP)
-# code 
+servo = Servo(mini_servo)
+servo.write_angle(0)
+# animations 
 line_1_1_beam = Image("00000""00000""00000""00000""90000")
 line_1_2_beam = Image("00000""00000""00000""90000""80000")
 line_1_3_beam = Image("00000""00000""90000""80000""70000")
@@ -46,3 +50,41 @@ line_3_8_beam = Image("00000""00000""00000""00000""00000")
 line_3_beam = [line_3_1_beam, line_3_2_beam, line_3_3_beam, line_3_4_beam, line_3_5_beam, line_3_6_beam, line_3_7_beam, line_3_8_beam]
 
 line_4_1_beam = Image("00000""00000""00000""00000""00090")
+line_4_2_beam = Image("00000""00000""00000""00090""00080")
+line_4_3_beam = Image("00000""00000""00090""00080""00070")
+line_4_4_beam = Image("00000""00090""00080""00070""00000")
+line_4_5_beam = Image("00090""00080""00070""00000""00000")
+line_4_6_beam = Image("00080""00070""00000""00000""00000")
+line_4_7_beam = Image("00070""00000""00000""00000""00000")
+line_4_8_beam = Image("00000""00000""00000""00000""00000")
+
+line_4_beam = [line_4_1_beam, line_4_2_beam, line_4_3_beam, line_4_4_beam, line_4_5_beam, line_4_6_beam, line_4_7_beam, line_4_8_beam]
+
+line_5_1_beam = Image("00000""00000""00000""00000""00009")
+line_5_2_beam = Image("00000""00000""00000""00009""00008")
+line_5_3_beam = Image("00000""00000""00009""00008""00007")
+line_5_4_beam = Image("00000""00009""00008""00007""00000")
+line_5_5_beam = Image("00009""00008""00007""00000""00000")
+line_5_6_beam = Image("00008""00007""00000""00000""00000")
+line_5_7_beam = Image("00007""00000""00000""00000""00000")
+line_5_8_beam = Image("00000""00000""00000""00000""00000")
+
+line_5_beam = [line_5_1_beam, line_5_2_beam, line_5_3_beam, line_5_4_beam, line_5_5_beam, line_5_6_beam, line_5_7_beam, line_5_8_beam]
+
+wave_1 = Image("00000""00000""00000""00000""99999")
+wave_2 = Image("00000""00000""00000""00900""99899")
+wave_3 = Image("00000""00000""00900""09890""98789")
+wave_4 = Image("00000""00900""09890""98789""87678")
+wave_5 = Image("00900""09890""98789""87678""76567")
+
+wave = [wave_1, wave_2, wave_3, wave_4, wave_5]
+
+ripple_1 = Image("00000""00000""00900""00000""00000")
+ripple_2 = Image("00000""09990""09090""09990""00000")
+ripple_3 = Image("99999""90009""90009""90009""99999")
+
+ripple = [ripple_1, ripple_2, ripple_3]
+
+# code 
+while True: 
+    if ad_keypad.read_analog() > 0 and ad_keypad.read_analog() < 10 and potentiometer.read_analog() > 0 and potentiometer.read_analog < 511:
