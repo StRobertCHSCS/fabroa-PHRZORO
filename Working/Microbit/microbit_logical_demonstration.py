@@ -1,6 +1,6 @@
 from microbit import *
-import music 
-from servo import Servo 
+import music
+from servo import Servo
 import time
 # pins 
 crash_sensor = pin0
@@ -12,6 +12,8 @@ red_led = pin10
 # setup
 crash_sensor.set_pull(crash_sensor.PULL_UP)
 servo = Servo(mini_servo)
+
+"""
 # animations 
 line_1_1_beam = Image("00000:""00000:""00000:""00000:""90000")
 line_1_2_beam = Image("00000:""00000:""00000:""90000:""80000")
@@ -81,70 +83,71 @@ ripple_2 = Image("00000:""09990:""09090:""09990:""00000")
 ripple_3 = Image("99999:""90009:""90009:""90009:""99999")
 
 all_ripple = [ripple_1, ripple_2, ripple_3]
+"""
 while True: 
     if ad_keypad.read_analog() > 0 and ad_keypad.read_analog() < 10 and potentiometer.read_analog() > 0 and potentiometer.read_analog < 511:
-        display.show(all_line_1_beam, delay = 125)
+        #display.show(all_line_1_beam, delay = 125)
         servo.write_angle(36)
         time.sleep(1)
         red_led.write_digital(1)
         music.play("c4:2")
     if ad_keypad.read_analog() > 45 and ad_keypad.read_analog() < 55 and potentiometer.read_analog() > 0 and potentiometer.read_analog < 511:
-        display.show(all_line_2_beam, delay = 125)
+        #display.show(all_line_2_beam, delay = 125)
         servo.write_angle(72)
         time.sleep(1)
         red_led.write_digital(1)
         music.play("d4:2")
     if ad_keypad.read_analog() > 90 and ad_keypad.read_analog() < 100 and potentiometer.read_analog() > 0 and potentiometer.read_analog < 511: 
-        display.show(all_line_3_beam, delay = 125)
+        #display.show(all_line_3_beam, delay = 125)
         servo.write_angle(108)
         time.sleep(1)
         red_led.write_digital(1)
         music.play("e4:2")
     if ad_keypad.read_analog() > 135 and ad_keypad.read_analog < 140 and potentiometer.read_analog() > 0 and potentiometer.read_analog < 511: 
-        display.show(all_line_4_beam, delay = 125)
+        #display.show(all_line_4_beam, delay = 125)
         servo.write_angle(144)
         time.sleep(1)
         red_led.write_digital(1)
         music.play("f4:2")
     if ad_keypad.read_analog() > 535 and ad_keypad.read_analog < 545 and potentiometer.read_analog() > 0 and potentiometer.read_analog < 511:
-        display.show(all_line_5_beam, delay = 125)
+        #display.show(all_line_5_beam, delay = 125)
         servo.write_angle(180)
         time.sleep(1)
         red_led.write_digital(1)
         music.play("g4:2")
     if crash_sensor.read_digital() == 0:
-        display.show(all_ripple, delay = 334)
+        #display.show(all_ripple, delay = 334)
         servo.write_angle(0)
         time.sleep(1)
         red_led.write_digital(1)
         music.play(music.FUNK)
     elif ad_keypad.read_analog() > 0 and ad_keypad.read_analog() < 10 and potentiometer.read_analog() > 0 and potentiometer.read_analog > 510:
-        display.show(all_line_1_beam, delay = 63)
-        servo.write_angle(216)
+        #display.show(all_line_1_beam, delay = 63)
+        servo.write_angle(36)
         time.sleep(0.5)
         red_led.write_digital(1)
         music.play("c8:1")
     elif ad_keypad.read_analog() > 45 and ad_keypad.read_analog() < 55 and potentiometer.read_analog() > 0 and potentiometer.read_analog > 510:
-        display.show(all_line_2_beam, delay = 63)
-        servo.write_angle(252)
+        #display.show(all_line_2_beam, delay = 63)
+        servo.write_angle(72)
         time.sleep(0.5)
         red_led.write_digital(1)
         music.play("d8:1")
     elif ad_keypad.read_analog() > 90 and ad_keypad.read_analog() < 100 and potentiometer.read_analog() > 0 and potentiometer.read_analog > 510: 
-        display.show(all_line_3_beam, delay = 63)
-        servo.write_angle(288)
+        #display.show(all_line_3_beam, delay = 63)
+        servo.write_angle(108)
         time.sleep(0.5)
         red_led.write_digital(1)
         music.play("e8:1")
     elif ad_keypad.read_analog() > 135 and ad_keypad.read_analog < 140 and potentiometer.read_analog() > 0 and potentiometer.read_analog > 510: 
-        display.show(all_line_4_beam, delay = 63)
-        servo.write_angle(324)
+        #display.show(all_line_4_beam, delay = 63)
+        servo.write_angle(144)
         time.sleep(0.5)
         red_led.write_digital(1)
         music.play("f8:1")
     elif ad_keypad.read_analog() > 535 and ad_keypad.read_analog < 545 and potentiometer.read_analog() > 0 and potentiometer.read_analog > 510:
-        display.show(all_line_5_beam, delay = 63)
-        servo.write_angle(360)
+        #display.show(all_line_5_beam, delay = 63)
+        servo.write_angle(180)
         time.sleep(0.5)
         red_led.write_digital(1)
         music.play("g8:1")
@@ -152,6 +155,6 @@ while True:
         servo.write_angle(0)
         red_led.write_digital(0)
         music.play(music.BLUES, loop = True)
-        display.show(all_wave, delay = 200, loop = True)
+        #display.show(all_wave, delay = 200, loop = True)
 
 
