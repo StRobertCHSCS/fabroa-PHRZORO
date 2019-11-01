@@ -1,26 +1,12 @@
 from microbit import *
- 
-# pins
-ADKeypad_pin = pin2
- 
+import music
+ad_keypad = pin1
+buzzer = pin0
+potentiometer = pin5
+red_led = pin15
 while True:
-    # buttonA
-    if ADKeypad_pin.read_analog() &gt; 0 and ADKeypad_pin.read_analog() &lt; 10:
-        display.show(Image.SILLY)                             
- 
-    # buttonB
-    if ADKeypad_pin.read_analog() &gt; 45 and ADKeypad_pin.read_analog() &lt; 55:
-        display.show(Image.HAPPY)
- 
-    # buttonC
-    if ADKeypad_pin.read_analog() &gt; 90 and ADKeypad_pin.read_analog() &lt; 100:
-        display.show(Image.SKULL)
- 
-    # buttonD
-    if ADKeypad_pin.read_analog() &gt; 135 and ADKeypad_pin.read_analog() &lt; 140:
-        display.show(Image.PITCHFORK)
- 
-    # buttonE
-    if ADKeypad_pin.read_analog() &gt; 535 and ADKeypad_pin.read_analog() &lt; 545:
-        display.show(Image.DUCK)
-
+    if ad_keypad.read_analog() > 0 and ad_keypad.read_analog() < 10 and potentiometer.read_analog() > 0 and potentiometer.read_analog() <= 511:
+        # display.show(all_line_1_beam, delay = 125)
+        red_led.write_digital(1)
+        music.play("c4:2", pin=buzzer)
+        #https://tech.microbit.org/hardware/edgeconnector/ 
