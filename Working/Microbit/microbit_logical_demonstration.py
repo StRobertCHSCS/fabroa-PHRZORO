@@ -97,7 +97,7 @@ while True:
         time.sleep(1)
         red_led.write_digital(1)
         music.play("d4:2")
-    if ad_keypad.read_analog() > 90 and ad_keypad.read_analog() < 100 and potentiometer.read_analog() > 0 and potentiometer.read_analog < 511: 
+
         #display.show(all_line_3_beam, delay = 125)
         servo.write_angle(108)
         time.sleep(1)
