@@ -1,11 +1,11 @@
 from microbit import *
 import music
 # pins 
-crash_sensor = pin11
-buzzer = pin0
-ad_keypad = pin1
-potentiometer = pin3
-red_led = pin15
+crash_sensor = pin2
+buzzer = pin15
+ad_keypad = pin0
+potentiometer = pin1
+red_led = pin16
 # setup
 crash_sensor.set_pull(crash_sensor.PULL_UP)
 

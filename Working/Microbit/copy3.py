@@ -9,4 +9,4 @@ while True:
         # display.show(all_line_1_beam, delay = 125)
         red_led.write_digital(1)
         music.play("c4:2", pin=buzzer)
-        #https://tech.microbit.org/hardware/edgeconnector/ 
+        #tps://tech.microbit.org/hardware/edgeconnector/ht 
