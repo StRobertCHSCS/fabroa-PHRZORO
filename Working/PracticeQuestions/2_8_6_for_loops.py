@@ -4,4 +4,4 @@ for i in range(num_num):
     number = int(input("Enter your number(s): "))
     total = total + number 
 print(num_num)
-print(total)
+print("Sum: "total)
